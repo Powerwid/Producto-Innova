@@ -17,7 +17,7 @@ export class ProductoImagen {
     producto: Producto;
 
     @Column({ length: 500 })
-    url: string
+    url: string;
 
     @Column()
     orden: number;

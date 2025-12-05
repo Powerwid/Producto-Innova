@@ -1,5 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, UpdateDateColumn, CreateDateColumn, OneToMany, } from 'typeorm';
-import { Categoria } from 'src/modules/categoria/entities/categoria.entity';
+import { Categoria } from '../../categoria/entities/categoria.entity';
+
 import { ProductoImagen } from './producto-imagen.entity';
 
 @Entity({ name: 'producto' })
