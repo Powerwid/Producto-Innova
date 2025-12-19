@@ -2,6 +2,7 @@ import { Controller, Get, Post, Patch, Delete, Param, Body, ParseIntPipe } from 
 import { ProductoService } from './producto.service';
 import { CreateProductoDto } from './dto/create-producto.dto';
 import { UpdateProductoDto } from './dto/update-producto.dto';
+import { Roles } from 'src/common/decorators/roles.decorator';
 
 @Controller('producto')
 export class ProductoController {
