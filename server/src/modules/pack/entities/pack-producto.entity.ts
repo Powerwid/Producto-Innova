@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 import { Pack } from "./pack.entity";
-import { Producto } from "src/modules/producto/entities/producto.entity";
+import { Producto } from "../../producto/entities/producto.entity";
 
 @Entity({ name:"pack_producto" })
 export class PackProducto {

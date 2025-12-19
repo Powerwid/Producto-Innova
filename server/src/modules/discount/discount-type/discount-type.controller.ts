@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post } from "@nestjs/common";
 import { DiscountTypeService } from "./discount-type.service";
 import { CreateDiscountTypeDto } from "./dto/create-discount-type.dto";
-import { Roles } from "src/modules/auth/decorators/roles.decorator";
+import { Roles } from "src/common/decorators/roles.decorator";
 
 @Controller('discount/type')
 export class DiscountTypeController {

@@ -2,13 +2,14 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { CategoriaService } from './categoria.service';
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import { UpdateCategoriaDto } from './dto/update-categoria.dto';
-import { Roles } from '../auth/decorators/roles.decorator';
+import { Roles } from '../../common/decorators/roles.decorator';
+import { RolesEnum } from 'src/common/enums/roles.enum';
 
 @Controller('categoria')
 export class CategoriaController {
   constructor(private readonly categoriaService: CategoriaService) {}
 
-  @Roles(1, 2)
+  @Roles(RolesEnum.admin, RolesEnum.superadmin)
   @Post()
   create(@Body() dto: CreateCategoriaDto) {
     return this.categoriaService.create(dto);

@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { RolesSeeder } from './roles.seed';
 import { SeedModule } from './seed.module';
 import { UserSeeder } from './user.seed';
+import { PaymentMethodSeeder } from './payment-method.seed';
 
 async function bootstrap() {
   const app = await NestFactory.createApplicationContext(SeedModule);
@@ -11,6 +12,9 @@ async function bootstrap() {
 
   const userSeeder = app.get(UserSeeder);
   await userSeeder.run();
+
+  const paymentMethodSeeder = app.get(PaymentMethodSeeder);
+  await paymentMethodSeeder.run();
 
   await app.close();
 }

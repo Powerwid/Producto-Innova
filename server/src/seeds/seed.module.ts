@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { RolesSeeder } from './roles.seed';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserSeeder } from './user.seed';
+import { PaymentMethodSeeder } from './payment-method.seed';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { UserSeeder } from './user.seed';
       synchronize: false,
     }),
   ],
-  providers: [RolesSeeder, UserSeeder],
-  exports: [RolesSeeder, UserSeeder],
+  providers: [RolesSeeder, UserSeeder, PaymentMethodSeeder],
+  exports: [RolesSeeder, UserSeeder, PaymentMethodSeeder],
 })
 export class SeedModule {}

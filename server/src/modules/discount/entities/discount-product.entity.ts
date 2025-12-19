@@ -1,6 +1,6 @@
 import { Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 import { Discount } from "./discount.entity";
-import { Producto } from "src/modules/producto/entities/producto.entity";
+import { Producto } from "../../producto/entities/producto.entity";
 
 @Entity({ name: "discount_product" })
 export class DiscountProduct {

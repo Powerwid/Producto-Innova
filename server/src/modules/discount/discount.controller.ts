@@ -3,7 +3,7 @@ import { DiscountService } from './discount.service';
 import { CreateDiscountDto } from './dto/create-discount.dto';
 import { UpdateDiscountDto } from './dto/update-discount.dto';
 import { AddProductToDiscountDto } from './dto/add-product.dto';
-import { Roles } from '../auth/decorators/roles.decorator';
+import { Roles } from '../../common/decorators/roles.decorator';
 
 @Controller('discount')
 export class DiscountController {
