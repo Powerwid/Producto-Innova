@@ -20,19 +20,19 @@ export class UsuarioController {
     return this.usuarioService.findAll();
   }
 
-  @Roles(1, 2)
+  @Public()
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.usuarioService.findOne(+id);
   }
 
-  @Roles(1, 2)
+  @Public()
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
     return this.usuarioService.update(+id, updateUsuarioDto);
   }
 
-  @Roles(1, 2)
+  @Public()
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.usuarioService.remove(+id);
