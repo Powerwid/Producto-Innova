@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "@images/logopestana.png"
 import {
     Home,
@@ -70,17 +71,24 @@ export default function Sidebear({ isOpen }: { isOpen: boolean }) {
 
             <nav className="flex-1 space-y-2 overflow-y-auto">
 
-                <div className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                <Link
+                    to="/"
+                    className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition"
+                >
                     <Home size={18} />
                     <span className={`${expanded ? "inline" : "hidden"} whitespace-nowrap`}>Inicio</span>
-                </div>
+                </Link>
 
-                <div className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                <Link
+                    to="/cart"
+                    className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition"
+                >
                     <ShoppingCart size={18} />
                     <span className={`${expanded ? "inline" : "hidden"} whitespace-nowrap`}>
                         Carrito de Compras
                     </span>
-                </div>
+                </Link>
+
                 <div>
                     <button
                         onClick={() => toggle("perfil")}
@@ -88,7 +96,9 @@ export default function Sidebear({ isOpen }: { isOpen: boolean }) {
                     >
                         <span className="flex items-center gap-3">
                             <User size={18} />
-                            Perfil
+                            <span className={`${expanded ? "inline" : "hidden"} whitespace-nowrap`}>
+                                Perfil
+                            </span>
                         </span>
 
                         {open === "perfil" ? (
@@ -98,28 +108,42 @@ export default function Sidebear({ isOpen }: { isOpen: boolean }) {
                         )}
                     </button>
 
+                    {/* SUBMENÚ */}
                     <div
                         className={`
                     ml-10 mt-1 space-y-3 overflow-hidden transition-all duration-500
                     ${open === "perfil" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
-                `}
+                    `}
                     >
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+
+                        <Link
+                            to="/perfil/editar"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <UserCog size={18} />
                             <span>Editar Perfil</span>
-                        </div>
+                        </Link>
 
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        <Link
+                            to="/perfil/actividad"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <ShoppingBag size={18} />
                             <span>Mi Actividad</span>
-                        </div>
+                        </Link>
 
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        <Link
+                            to="/perfil/calendario"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <Calendar size={18} />
                             <span>Calendario</span>
-                        </div>
+                        </Link>
+
                     </div>
                 </div>
+
+
                 <div>
                     <button
                         onClick={() => toggle("usuario")}
@@ -139,21 +163,30 @@ export default function Sidebear({ isOpen }: { isOpen: boolean }) {
 
                     <div
                         className={`
-                    ml-10 mt-1 space-y-3 overflow-hidden transition-all duration-500
-                    ${open === "usuario" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
-                `}
+                            ml-10 mt-1 space-y-3 overflow-hidden transition-all duration-500
+                            ${open === "usuario" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
+                        `}
                     >
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        {/* Lista de Usuarios */}
+                        <Link
+                            to="/usuarios"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <UserSearch size={18} />
                             <span>Lista de Usuarios</span>
-                        </div>
+                        </Link>
 
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        {/* Nuevo Usuario */}
+                        <Link
+                            to="/usuarios/nuevo"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <UserRoundPlus size={18} />
                             <span>Nuevo Usuario</span>
-                        </div>
+                        </Link>
                     </div>
                 </div>
+
                 <div>
                     <button
                         onClick={() => toggle("producto")}
@@ -172,21 +205,29 @@ export default function Sidebear({ isOpen }: { isOpen: boolean }) {
                     </button>
 
                     <div
-                        className={`ml-10 mt-1 space-y-3 overflow-hidden transition-all duration-500 
-                    ${open === "producto" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
-                `}
+                        className={`
+                            ml-10 mt-1 space-y-3 overflow-hidden transition-all duration-500 
+                            ${open === "producto" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
+                        `}
                     >
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        <Link
+                            to="/producto"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <Cuboid size={18} />
                             <span>Lista de Productos</span>
-                        </div>
+                        </Link>
 
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        <Link
+                            to="/producto/nuevo"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <SquarePlus size={18} />
                             <span>Nuevo Producto</span>
-                        </div>
+                        </Link>
                     </div>
                 </div>
+
 
                 <div>
                     <button
@@ -207,21 +248,29 @@ export default function Sidebear({ isOpen }: { isOpen: boolean }) {
 
                     <div
                         className={`
-                    ml-10 mt-1 space-y-3 overflow-hidden transition-all duration-500
-                    ${open === "paquetes" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
-                `}
+                            ml-10 mt-1 space-y-3 overflow-hidden transition-all duration-500
+                            ${open === "paquetes" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
+                        `}
                     >
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        <Link
+                            to="/paquetes"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <PackageSearch size={18} />
                             <span>Lista de Paquetes</span>
-                        </div>
+                        </Link>
 
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        <Link
+                            to="/paquetes/nuevo"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <PackagePlus size={18} />
                             <span>Nuevo Paquete</span>
-                        </div>
+                        </Link>
                     </div>
                 </div>
+
+
                 <div>
                     <button
                         onClick={() => toggle("descuentos")}
@@ -241,46 +290,72 @@ export default function Sidebear({ isOpen }: { isOpen: boolean }) {
 
                     <div
                         className={`
-                    ml-10 mt-1 space-y-3 overflow-hidden transition-all duration-500
-                    ${open === "descuentos" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
-                `}
+                            ml-10 mt-1 space-y-3 overflow-hidden transition-all duration-500
+                            ${open === "descuentos" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
+                        `}
                     >
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        {/* Tipos de Descuentos */}
+                        <Link
+                            to="/descuentos"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <Tag size={18} />
                             <span>Tipos de Descuentos</span>
-                        </div>
+                        </Link>
 
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        {/* Crear Descuento */}
+                        <Link
+                            to="/descuentos/nuevo"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <Tags size={18} />
                             <span>Crear Descuento</span>
-                        </div>
+                        </Link>
 
-                        <div className="cursor-pointer hover:text-gray-900 flex gap-2 items-center">
+                        {/* Cupones (si quieres una vista aparte) */}
+                        <Link
+                            to="/cupones"
+                            className="cursor-pointer hover:text-gray-900 flex gap-2 items-center"
+                        >
                             <Tickets size={18} />
                             <span>Cupones</span>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 
-                <div className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                <Link
+                    to="/reportes"
+                    className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition"
+                >
                     <BarChart size={18} />
-                    <span className={`${isOpen || isHovered ? "inline" : "hidden"}`}>Reportes</span>
-                </div>
+                    <span className={`${isOpen || isHovered ? "inline" : "hidden"}`}>
+                        Reportes
+                    </span>
+                </Link>
 
-                <div className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                <Link
+                    to="/chat"
+                    className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition"
+                >
                     <MessageCircle size={18} />
                     <span className={`${isOpen || isHovered ? "inline" : "hidden"}`}>Chat</span>
-                </div>
+                </Link>
 
-                <div className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                <Link
+                    to="/redes"
+                    className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition"
+                >
                     <Share2 size={18} />
                     <span className={`${isOpen || isHovered ? "inline" : "hidden"}`}>Redes Sociales</span>
-                </div>
+                </Link>
 
-                <div className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                <Link
+                    to="/terminos"
+                    className="flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition"
+                >
                     <ReceiptText size={18} />
                     <span className={`${isOpen || isHovered ? "inline" : "hidden"}`}>Términos y Condiciones</span>
-                </div>
+                </Link>
 
             </nav>
 

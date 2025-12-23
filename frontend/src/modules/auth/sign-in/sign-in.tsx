@@ -1,28 +1,67 @@
-export default function Footer() {
+import { useState } from "react";
+
+export default function SignIn() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log("Login:", { email, password });
+    };
+
     return (
-        <footer className="w-full bg-gray-900 text-gray-300 py-8 mt-10">
-            <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+            <div className="w-full max-w-sm bg-white shadow-lg rounded-2xl p-6">
 
-                {/* Logo o nombre */}
-                <div className="text-lg font-semibold text-white">
-                    MiTiendaasfafsa fasfasfas© {new Date().getFullYear()}
-                </div>
+                <h1 className="text-2xl font-semibold text-center mb-6">
+                    Iniciar Sesión
+                </h1>
 
-                {/* Enlaces rápidos */}
-                <nav className="flex gap-6 text-sm">
-                    <a href="/" className="hover:text-white transition">Inicio</a>
-                    <a href="/shop" className="hover:text-white transition">Tienda</a>
-                    <a href="/contact" className="hover:text-white transition">Contacto</a>
-                </nav>
+                <form onSubmit={handleSubmit} className="space-y-4">
 
-                {/* Redes sociales */}
-                <div className="flex gap-4">
-                    <a href="#" className="hover:text-white transition">Facebook</a>
-                    <a href="#" className="hover:text-white transition">Instagram</a>
-                    <a href="#" className="hover:text-white transition">WhatsApp</a>
-                </div>
+                    <div>
+                        <label className="block text-sm font-medium mb-1">
+                            Correo
+                        </label>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="w-full px-3 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="tucorreo@example.com"
+                            required
+                        />
+                    </div>
 
+                    <div>
+                        <label className="block text-sm font-medium mb-1">
+                            Contraseña
+                        </label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="w-full px-3 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="••••••••"
+                            required
+                        />
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+                    >
+                        Entrar
+                    </button>
+                </form>
+
+                <p className="text-center text-sm text-gray-500 mt-4">
+                    ¿No tienes cuenta?{" "}
+                    <a href="/register" className="text-blue-600 hover:underline">
+                        Crear una
+                    </a>
+                </p>
             </div>
-        </footer>
+        </div>
     );
 }
