@@ -12,6 +12,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { ChatModule } from './modules/chat/chat.module';
 import { config } from 'process';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AddressModule } from './modules/address/address.module';
 
 @Module({
   imports: [
@@ -41,7 +42,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     CouponModule,
     DiscountModule,
     AuthModule,
-    ChatModule
+    ChatModule,
+    AddressModule
   ],
 })
 export class AppModule { }

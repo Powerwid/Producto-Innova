@@ -4,6 +4,9 @@ export class CreateOrderDto {
     @IsInt()
     id_payment_method: number;
 
+    @IsInt()
+    id_address: number;
+
     @IsOptional()
     @IsInt()
     id_coupon?: number;

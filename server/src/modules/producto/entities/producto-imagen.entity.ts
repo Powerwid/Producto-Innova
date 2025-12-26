@@ -22,6 +22,9 @@ export class ProductoImagen {
     @Column()
     orden: number;
 
+    @Column({ default: true })
+    visible: boolean;
+
     @CreateDateColumn({ type: 'datetime' })
     created_at: Date;
 

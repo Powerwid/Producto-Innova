@@ -50,7 +50,11 @@ import Chat from "@shop/chat/Chat";
 // Terminos
 import Terminos from "@shop/terminos/Terminos";
 
+<<<<<<< HEAD
 // Definición de rutas
+=======
+
+>>>>>>> 7ae097a (feat: cambios en la base de datos, nuevo modulo de address y modificacion del modulo usuario)
 // Definición de rutas
 const router = createBrowserRouter([
   {

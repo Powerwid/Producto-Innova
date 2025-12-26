@@ -15,6 +15,9 @@ export class PackImagen {
     @Column()
     orden: number;
 
+    @Column({ default: true })
+    visible: boolean;
+
     @ManyToOne(() => Pack, (pack) => pack.imagenes, {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',

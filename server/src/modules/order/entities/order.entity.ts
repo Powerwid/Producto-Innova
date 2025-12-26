@@ -10,6 +10,9 @@ export class Order {
   id_user: number;
 
   @Column()
+  id_address: number;
+
+  @Column()
   id_payment_method: number;
 
   @Column({ nullable: true })

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export default function DescuentoNuevo() {
     return (
         <div>
@@ -6,3 +7,13 @@ export default function DescuentoNuevo() {
         </div>
     );
 }
+=======
+export default function DescuentoNuevo() {
+    return (
+        <div>
+            <h1 className="text-xl font-bold">Nuevo Descuento</h1>
+            <p>Aquí podrás crear un nuevo descuento.</p>
+        </div>
+    );
+}
+>>>>>>> 7ae097a (feat: cambios en la base de datos, nuevo modulo de address y modificacion del modulo usuario)

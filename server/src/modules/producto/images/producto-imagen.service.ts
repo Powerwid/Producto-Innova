@@ -13,7 +13,10 @@ export class ProductoImagenService {
     ) {}
 
     create(dto: CreateProductoImagenDto) {
-        const img = this.repo.create(dto);
+        const img = this.repo.create({
+            ...dto,
+            visible: true,
+        });
         return this.repo.save(img);
     }
 
